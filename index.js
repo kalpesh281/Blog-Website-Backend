@@ -6,12 +6,14 @@ const authRoute=require("./routes/auth")
 const userRoute=require("./routes/users")
 const postRoute=require("./routes/posts")
 const categoryRoute=require("./routes/categories")
-const multer=require("./Images")
+const multer=require("multer")
+const cors=require('cors')
+
 
 dotenv.config()
 app.use(express.json())
 
-
+app.use(cors())
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
