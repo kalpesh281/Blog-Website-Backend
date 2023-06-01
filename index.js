@@ -18,8 +18,12 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
    
-}).then(console.log("connected to MongoDB")).catch((err)=>console.log(err));
+},).then(console.log("connected to MongoDB")).catch((err)=>console.log(err));
 
+mongoose.connection.on('error', (err) => {
+    if(err) throw err;
+    console.log("DataBase Connected..")
+  });
 
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
