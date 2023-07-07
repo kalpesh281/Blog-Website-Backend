@@ -15,7 +15,7 @@ app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(cors(
     {
-        origin: ["https://blog-website-frontend-eight.vercel.app/"]
+        origin:"*"
     }
 ))
 mongoose.connect(process.env.MONGO_URL, {
