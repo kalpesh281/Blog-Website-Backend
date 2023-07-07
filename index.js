@@ -13,11 +13,7 @@ const path = require('path')
 dotenv.config()
 app.use(express.json())
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use(cors(
-    {
-        origin:"*"
-    }
-))
+app.use(cors())
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
